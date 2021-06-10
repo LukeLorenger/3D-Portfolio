@@ -116,6 +116,14 @@ function animate(){
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
 
+  luke.rotation.x += 0.01;
+  luke.rotation.y += 0.005;
+  luke.rotation.z += 0.01;
+
+  moon.rotation.x += 0.001;
+  moon.rotation.y += 0.003;
+  // moon.rotation.z += 0.001;
+
   // controls.update();
 
   renderer.render( scene, camera );
