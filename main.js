@@ -21,7 +21,10 @@ renderer.render( scene, camera );
 
 // Geometry - Add an object
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100 )
-const material = new THREE.MeshStandardMaterial( { color: 0xFF6347 } );
+const donutTexture = new THREE.TextureLoader().load('normal.jpg');
+// new THREE.MeshBasicMaterial( { map: lukeTexture } )
+// const material = new THREE.MeshStandardMaterial( { color: 0x800000 } );
+const material = new THREE.MeshBasicMaterial( { map: donutTexture } );
 const torus = new THREE.Mesh( geometry, material );
 
 scene.add(torus)
@@ -55,6 +58,7 @@ function addStar() {
 
 Array(200).fill().forEach(addStar)
 
+
 // Space texture
 const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 scene.background = spaceTexture;
@@ -64,6 +68,7 @@ const lukeTexture = new THREE.TextureLoader().load('me.jpg');
 
 const luke = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
+  // new THREE.CylinderGeometry( 5, 5, 1, 32 ),
   new THREE.MeshBasicMaterial( { map: lukeTexture } )
 );
 
@@ -85,7 +90,7 @@ scene.add(moon)
 
 // Positioning where we are scrolling too.
 moon.position.z = 30;
-moon.position.setX(-7);
+moon.position.setX(-6);
 
 luke.position.z = -5;
 luke.position.x = 2;
