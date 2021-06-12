@@ -60,7 +60,7 @@ Array(200).fill().forEach(addStar)
 
 
 // Space texture
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('space.jpeg');
 scene.background = spaceTexture;
 
 // Avatar
@@ -86,11 +86,27 @@ const moon = new THREE.Mesh(
   })
 );
 
+// Moon2
+// const moon2Texture = new THREE.TextureLoader().load('moon.jpg');
+// const norma2lTexture = new THREE.TextureLoader().load('normal.jpg');
+
+// const moon2 = new THREE.Mesh(
+//   new THREE.SphereGeometry(3, 32, 32),
+//   new THREE.MeshStandardMaterial({
+//     map: moon2Texture,
+//     normalMap: normal2Texture,
+//   })
+// );
+
 scene.add(moon)
+// scene.add(moon2)
 
 // Positioning where we are scrolling too.
 moon.position.z = 30;
 moon.position.setX(-6);
+
+// moon2.position.z = -30;
+// moon2.position.setX(6);
 
 luke.position.z = -5;
 luke.position.x = 2;
@@ -102,12 +118,16 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
+  // moon2.rotation.x += 0.05;
+  // moon2.rotation.y += 0.075;
+  // moon2.rotation.z += 0.05;
+
   luke.rotation.y += 0.01;
   luke.rotation.z += 0.01;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002;
+  camera.position.y = t * -0.001;
 }
 
 document.body.onscroll = moveCamera
@@ -127,7 +147,9 @@ function animate(){
 
   moon.rotation.x += 0.001;
   moon.rotation.y += 0.003;
-  // moon.rotation.z += 0.001;
+
+  // moon2.rotation.x += 0.001;
+  // moon2.rotation.y += 0.003;
 
   // controls.update();
 

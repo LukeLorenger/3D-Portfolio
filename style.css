@@ -53,6 +53,10 @@ h1, h2, h3, blockquote {
     margin-bottom: var(--spacing);
   }
 
+  .black {
+    background: var(--dark-bg);
+  }
+
   blockquote {
     margin: 0;
     padding: 0;
@@ -71,6 +75,8 @@ h1, h2, h3, blockquote {
   .left {
     grid-column: 6 / 12;
   }
+
+
 
   /* Table */
 
