@@ -65,6 +65,7 @@ scene.background = spaceTexture;
 
 // Avatar
 const lukeTexture = new THREE.TextureLoader().load('me.jpg');
+const planetATexture = new THREE.TextureLoader().load('planetA.jpg');
 
 const luke = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
@@ -73,6 +74,14 @@ const luke = new THREE.Mesh(
 );
 
 scene.add(luke);
+
+// Planet A
+const planetA = new THREE.Mesh(
+  new THREE.DodecahedronGeometry(3,3,3),
+  new THREE.MeshBasicMaterial( { map: planetATexture } )
+);
+
+scene.add(planetA)
 
 // Moon
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
@@ -111,6 +120,10 @@ moon.position.setX(-6);
 luke.position.z = -5;
 luke.position.x = 2;
 
+planetA.position.z = 5;
+planetA.position.y = 5;
+planetA.position.x = 50;
+
 // Scroll animation
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
@@ -124,6 +137,9 @@ function moveCamera() {
 
   luke.rotation.y += 0.01;
   luke.rotation.z += 0.01;
+
+  planetA.rotation.y += 0.01;
+  planetA.rotation.z += 0.01;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
@@ -144,6 +160,10 @@ function animate(){
   luke.rotation.x += 0.01;
   luke.rotation.y += 0.005;
   luke.rotation.z += 0.01;
+
+  planetA.rotation.x += 0.01;
+  planetA.rotation.y += 0.005;
+  planetA.rotation.z += 0.01;
 
   moon.rotation.x += 0.001;
   moon.rotation.y += 0.003;
