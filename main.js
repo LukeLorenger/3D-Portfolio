@@ -24,9 +24,9 @@ camera.position.setZ(30);
 
 renderer.render( scene, camera );
 
-// Geometry - Add an object
+// Geometry 1
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100 )
+const geometry = new THREE.TorusGeometry(10, .5, 16, 50 )
 const donutTexture = new THREE.TextureLoader().load('normal.jpg');
 // new THREE.MeshBasicMaterial( { map: lukeTexture } )
 // const material = new THREE.MeshStandardMaterial( { color: 0x800000 } );
@@ -34,6 +34,33 @@ const material = new THREE.MeshBasicMaterial( { map: donutTexture } );
 const torus = new THREE.Mesh( geometry, material );
 
 scene.add(torus)
+
+// Geometry 2
+
+const Ggeometry = new THREE.TorusGeometry(10, .5, 16, 50 )
+const DdonutTexture = new THREE.TextureLoader().load('normal.jpg');
+const Mmaterial = new THREE.MeshBasicMaterial( { map: DdonutTexture } );
+const Ttorus = new THREE.Mesh( Ggeometry, Mmaterial );
+
+scene.add(Ttorus)
+
+// Geometry 3
+
+const GGgeometry = new THREE.TorusGeometry(10, .5, 16, 50 )
+const DDdonutTexture = new THREE.TextureLoader().load('normal.jpg');
+const MMmaterial = new THREE.MeshBasicMaterial( { map: DDdonutTexture } );
+const TTtorus = new THREE.Mesh( GGgeometry, MMmaterial );
+
+scene.add(TTtorus)
+
+// Geometry 4
+
+const GGGgeometry = new THREE.TorusGeometry(10, .5, 16, 50 )
+const DDDdonutTexture = new THREE.TextureLoader().load('normal.jpg');
+const MMMmaterial = new THREE.MeshBasicMaterial( { map: DDDdonutTexture } );
+const TTTtorus = new THREE.Mesh( GGGgeometry, MMMmaterial );
+
+scene.add(TTTtorus)
 
 //controls
 
@@ -48,9 +75,10 @@ scene.add(pointLight, ambientLight)
 
 // Light Helper
 
-const lightHelper = new THREE.PointLightHelper(pointLight)
+// const lightHelper = new THREE.PointLightHelper(pointLight)
+// When adding lightHelper, make sure to add it within scene
 const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper)
+scene.add(gridHelper) // add lightHelper
 
 // Orbit Controls
 
@@ -102,7 +130,7 @@ scene.add(planetA)
 
 const planetBTexture = new THREE.TextureLoader().load('planetB.jpg');
 const planetB = new THREE.Mesh(
-  new THREE.DodecahedronGeometry(30,30,30),
+  new THREE.DodecahedronGeometry(50,50,50),
   new THREE.MeshBasicMaterial( { map: planetBTexture } )
 );
 
@@ -124,7 +152,7 @@ const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('normal.jpg');
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.SphereGeometry(3, 50, 50),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: normalTexture,
@@ -189,9 +217,21 @@ moveCamera();
 function animate(){
   requestAnimationFrame( animate );
 
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
+  torus.rotation.x += 0.03;
+  // torus.rotation.y += 0.005;
+  // torus.rotation.z += 0.01;
+
+  // Ttorus.rotation.x += 0.01;
+  Ttorus.rotation.y += 0.01;
+  // Ttorus.rotation.z += 0.02;
+
+  TTtorus.rotation.x += -0.01;
+  // TTtorus.rotation.y += 0.01;
+  // TTtorus.rotation.z += 0.01;
+
+  // TTTtorus.rotation.x += 0.01;
+  TTTtorus.rotation.y += -0.01;
+  // TTTtorus.rotation.z += 0.01;
 
   luke.rotation.x += 0.01;
   luke.rotation.y += 0.005;
