@@ -1,7 +1,6 @@
 import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
 
 
 // scene
@@ -28,8 +27,6 @@ renderer.render( scene, camera );
 
 const geometry = new THREE.TorusGeometry(10, .5, 16, 50 )
 const donutTexture = new THREE.TextureLoader().load('normal.jpg');
-// new THREE.MeshBasicMaterial( { map: lukeTexture } )
-// const material = new THREE.MeshStandardMaterial( { color: 0x800000 } );
 const material = new THREE.MeshBasicMaterial( { map: donutTexture } );
 const torus = new THREE.Mesh( geometry, material );
 
@@ -102,8 +99,8 @@ Array(200).fill().forEach(addStar)
 
 // Space texture
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpeg');
-scene.background = spaceTexture;
+// const spaceTexture = new THREE.TextureLoader().load('space.jpeg');
+// scene.background = spaceTexture;
 
 // Avatar
 
@@ -114,7 +111,7 @@ const luke = new THREE.Mesh(
   new THREE.MeshBasicMaterial( { map: lukeTexture } )
 );
 
-scene.add(luke);
+// scene.add(luke);
 
 // Planet A
 
@@ -167,8 +164,8 @@ scene.add(moon)
 moon.position.z = 30;
 moon.position.setX(-6);
 
-luke.position.z = -5;
-luke.position.x = 2;
+// luke.position.z = -5;
+// luke.position.x = 2;
 
 planetA.position.z = 5;
 planetA.position.y = 0;
@@ -204,12 +201,12 @@ function moveCamera() {
   // planetC.rotation.y += 0.075;
   // planetC.rotation.z += 0.05;
 
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.001;
+  // camera.position.z = t * -0.01;
+  // camera.position.x = t * -0.0002;
+  // camera.position.y = t * -0.001;
 }
 
-document.body.onscroll = moveCamera
+document.body.onclick = moveCamera
 moveCamera();
 
 // Loop
